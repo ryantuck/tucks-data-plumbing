@@ -1,0 +1,61 @@
+[WIP]
+
+TUCK'S DATA PLUMBING
+
+www.tucksdataplumbing.com
+
+Serving Westchester, NYC, and the Metaverse
+
+Free 1-hour Consultation
+
+Pricing
+
+    Mom-n-Pop / Small Business
+
+    Startup Series  A
+                    B
+                    C
+                    D
+                    E
+
+
+Managed Services
+
+    Web Development
+
+    Data Pipelines
+
+    Data Warehouse
+
+Services
+
+    AI Shaman
+
+        Claude, ChatGPT, Gemini, Grok, Kimi, Whatever
+
+    Cloud Mechanic
+
+        
+
+    Web Dev Nerd
+
+        Frontend HTML CSS Javascript Typescript
+
+        Backend
+
+            Node Python Ruby
+
+    Data Warehouse Attendant
+
+        BigQuery Snowflake Redshift
+
+    Data Lake Skipper
+
+        S3 Athena 
+
+
+
+
+
+
+No tracking implemented on www.tucksdataplumbing.com.
