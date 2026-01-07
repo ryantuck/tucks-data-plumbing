@@ -1,0 +1,121 @@
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=SUSE+Mono&display=swap');
+
+#header { font-size: 3rem; }
+#tdp {
+  width: 80%;
+  margin: auto;
+}
+#qr {
+  width: 30%;
+  margin: auto;
+}
+#content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#content div {
+  width: 45%;
+}
+
+h1 { margin: 0 }
+
+.page {
+  font-family: "SUSE Mono", monospace;
+  text-align: center;
+}
+        @media print {
+          @page {
+            size: letter portrait;
+            margin: 0;
+          }
+          body {
+            margin: 0;
+            padding: 0;
+          }
+          h2 { font-size: 1.2rem }
+          p { font-size: 0.9rem }
+          .page {
+            font-family: "SUSE Mono", monospace;
+            text-align: center;
+
+            width: 8.5in;
+            height: 11in;
+            padding: 0.5in;
+            box-sizing: border-box;
+
+            color: #000;
+          }
+          .page .heading { height: 20%; }
+          .page #content { height: 30% }
+        }
+
+</style>
+<head>
+
+</head>
+<body>
+  <div class="page">
+    <div class="heading">
+      <h1 id="header"><span>Tuck's Data Plumbing</span></h1>
+      <p>Westchester's Finest Full-Stack Software Development Shop</p>
+      <p>Serving Westchester, NYC, and the Metaverse</p>
+      <h3>hello@tucksdataplumbing.com</h3>
+    </div>
+
+    <div class="main-img">
+      <img id="tdp" src="tucks-data-plumbing-bw.png" />
+    </div>
+
+    <div id="content">
+
+      <div>
+        <h2>Data Pipelines</h2>
+        <p>Automatically pipe your data wherever it needs to go whenever it needs to get there</p>
+      </div>
+
+      <div>
+        <h2>AI Workloads</h2>
+        <p>Wield the power of Claude, Gemini, or ChatGPT to do your business's bidding</p>
+      </div>
+
+      <div>
+        <h2>Cloud Infrastructure</h2>
+        <p>Run your business in the Cloud or tune your existing setup</p>
+      </div>
+
+      <div>
+        <h2>Web Development</h2>
+        <p>Classic full-stack website development and maintenance</p>
+      </div>
+
+      <div>
+        <h2>Analytics</h2>
+        <p>Understand and monitor every aspect of your business</p>
+      </div>
+
+      <div>
+        <h2>Engineering Leadership</h2>
+        <p>Help your team thrive in our brave new world</p>
+      </div>
+
+      <div>
+        <h2>Free 1-hour consultation</h2>
+        <p>Over a decade experience building products and leading teams at startups of all sizes</p>
+        <p>Affordable small business pricing</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; justify-content: flex-start">
+        <h2>www.tucksdataplumbing.com</h2>
+        <img style="margin-top: auto" id="qr" src="tdp-qr.png" />
+      </div>
+
+    </div>
+
+
+  </div>
+</body>
