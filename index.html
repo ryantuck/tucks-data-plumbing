@@ -1,82 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tuck's Data Plumbing</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=SUSE+Mono&display=swap');
+
+        :root {
+            color-scheme: dark;
+            --bg: #1f1f1f;
+            --panel: #2a2a2a;
+            --panel-alt: #333;
+            --text: #fff;
+            --muted: #d2d2d2;
+            --border: #4a4a4a;
+        }
+
         * {
+            box-sizing: border-box;
             font-family: 'SUSE Mono', monospace;
-            color: white;
         }
 
         body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page {
+            width: min(1100px, calc(100% - 2rem));
+            margin: 0 auto;
+            padding: 2rem 0 3rem;
             text-align: center;
-            background-color: #333;
+        }
+
+        .hero,
+        .contact,
+        .pricing,
+        .about {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1,
+        .hero p,
+        .pricing h2,
+        .about h2 {
+            margin-top: 0;
+        }
+
+        #tdp {
+            width: min(100%, 780px);
+            display: block;
+            margin: 1.5rem auto 0;
         }
 
         #self {
-            max-width: 400px;
+            width: min(100%, 280px);
+            border-radius: 18px;
+            border: 1px solid var(--border);
         }
-        #tdp {
-          width: 80%;
-          max-width: 1000px;
 
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--panel-alt);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.25rem;
+            text-align: left;
+        }
+
+        .service-card h2 {
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+
+        .contact p,
+        .pricing p,
+        .about p {
+            color: var(--muted);
+        }
+
+        .pricing-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .pricing-list p {
+            margin: 0;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: minmax(0, 1.6fr) minmax(220px, 1fr);
+            gap: 1.5rem;
+            align-items: center;
+            text-align: left;
+        }
+
+        @media (max-width: 720px) {
+            .about {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .service-card {
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Tuck's Data Plumbing</h1>
+    <main class="page">
+        <section class="hero">
+            <h1>Tuck's Data Plumbing</h1>
+            <p>Still better than AI, mostly</p>
+            <p>Serving Philadelphia and the World</p>
+            <img id="tdp" src="tdp.png" alt="Tuck's Data Plumbing logo" />
+        </section>
 
-    <p>Still better than AI, mostly</p>
+        <section class="contact">
+            <p>Email: tuck @ <a href="https://tucksdataplumbing.com">tucksdataplumbing.com</a></p>
+            <p>Portfolio: <a href="https://github.com/ryantuck">github.com/ryantuck</a></p>
+            <p>More of me: <a href="https://ryantuck.io">ryantuck.io</a></p>
+        </section>
 
-    <img id="tdp" src="tdp.png" />
+        <section class="services">
+            <article class="service-card">
+                <h2>Data Pipelines</h2>
+                <p>Get your data pulled down, tidied up, and where it needs to go as often as you'd like.</p>
+            </article>
+            <article class="service-card">
+                <h2>AI Workloads</h2>
+                <p>Leverage Claude, Gemini, ChatGPT, and friends to do your business's bidding.</p>
+            </article>
+            <article class="service-card">
+                <h2>Cloud Infrastructure</h2>
+                <p>Migrate your business to AWS or Google Cloud, or tune up whatever you've got already.</p>
+            </article>
+            <article class="service-card">
+                <h2>Web Development</h2>
+                <p>Classic full-stack website development and maintenance for teams that need to ship.</p>
+            </article>
+            <article class="service-card">
+                <h2>Analytics</h2>
+                <p>Understand and monitor every aspect of your business with reporting you can trust.</p>
+            </article>
+            <article class="service-card">
+                <h2>Engineering Leadership</h2>
+                <p>Over 10 years of experience helping startups of all sizes build products and teams.</p>
+            </article>
+        </section>
 
-    <p>10+ years of experience at startups at all phases of growth</p>
+        <section class="pricing">
+            <h2>Software Consulting</h2>
+            <div class="pricing-list">
+                <p>One-hour initial consultation ...... $0 :)</p>
+                <p>One hour .......................... $200</p>
+                <p>One day ........................... $1000</p>
+                <p>One week .......................... $4000</p>
+            </div>
+            <p>~ all prices subject to tax ~</p>
+        </section>
 
-    <p>Serving New York City and the World</p>
-
-    <p>Email: tuck @ <a href="https://tucksdataplumbing.com">tucksdataplumbing.com</a></p>
-
-    <p>Portfolio: <a href="https://github.com/ryantuck">github.com/ryantuck</a></p>
-
-    <p>More of me: <a href="https://ryantuck.io">ryantuck.io</a></p>
-
-
-    <h2>Software Consulting</h2>
-
-    <h3>Rent me Hourly!</h3>
-
-    <p>one-hour initial consultation ...... $ 0 :)</p>
-    <p>one hour  ....... $  200</p>
-    <p>one day   ....... $ 1000</p>
-    <p>one week  ....... $ 4000</p>
-
-    <p>~ all prices subject to tax ~</p>
-
-    <h2>Managed Services</h2>
-
-    <h3>Data Plumber</h3>
-
-    <p>Get your data pulled down, tidied up, and where it needs to go as often as you'd like</p>
-
-    <h3>AI Shaman</h3>
-
-    <p>Leverage the insanely cheap machine demigods we now share the planet with to do your businesses' bidding</p>
-
-    <h3>Cloud Mechanic</h3>
-
-    <p>Migrate your whole business to AWS or Google Cloud, or tune up whatever you've got already</p>
-
-    <p></p>
-
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-
-
-    <p></p>
-
-
-    <img id="self" src="self.jpeg" />
-
+        <section class="about">
+            <div>
+                <h2>Managed Services</h2>
+                <p>Data plumber, cloud mechanic, AI shaman, and general software fixer for businesses that need experienced hands.</p>
+                <p>Affordable small business pricing with a free one-hour consultation to scope the work.</p>
+            </div>
+            <img id="self" src="self.jpeg" alt="Ryan Tuck" />
+        </section>
+    </main>
 </body>
+</html>
