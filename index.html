@@ -1,189 +1,174 @@
+<!-- [AI-Generated]: Tuck's Data Plumbing homepage, restyled after ad.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tuck's Data Plumbing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SUSE+Mono&display=swap" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=SUSE+Mono&display=swap');
-
-        :root {
-            color-scheme: dark;
-            --bg: #1f1f1f;
-            --panel: #2a2a2a;
-            --panel-alt: #333;
-            --text: #fff;
-            --muted: #d2d2d2;
-            --border: #4a4a4a;
-        }
-
-        * {
-            box-sizing: border-box;
-            font-family: 'SUSE Mono', monospace;
-        }
+        /* Same look as ad.html: SUSE Mono, black on white, centered, no boxes. */
 
         body {
             margin: 0;
-            background: var(--bg);
-            color: var(--text);
+            background: #fff;
+            color: #000;
+            font-family: "SUSE Mono", monospace;
+            text-align: center;
         }
 
         a {
             color: inherit;
+            text-underline-offset: 0.2em;
         }
 
         .page {
-            width: min(1100px, calc(100% - 2rem));
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 2rem 0 3rem;
-            text-align: center;
+            padding: 2rem 1rem 4rem;
         }
 
-        .hero,
-        .contact,
-        .pricing,
-        .about {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 8vw, 3rem);
         }
 
-        .hero h1,
-        .hero p,
-        .pricing h2,
-        .about h2 {
-            margin-top: 0;
+        h1,
+        h2,
+        p {
+            text-wrap: balance;
+        }
+
+        .nowrap {
+            white-space: nowrap;
         }
 
         #tdp {
-            width: min(100%, 780px);
             display: block;
-            margin: 1.5rem auto 0;
+            width: 80%;
+            height: auto;
+            margin: 1.5rem auto;
+        }
+
+        section {
+            margin-top: 2.5rem;
+        }
+
+        #services {
+            display: grid;
+            grid-template-columns: repeat(2, 45%);
+            justify-content: space-around;
+        }
+
+        .prices {
+            max-width: 44ch;
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+            text-align: left;
+        }
+
+        .prices li {
+            display: flex;
+            align-items: flex-end;
+            gap: 1ch;
+            margin: 1em 0;
+        }
+
+        /* dot leader between each item and its price */
+        .prices li::after {
+            content: "............................................................";
+            content: "............................................................" / "";
+            order: 1;
+            flex: 1;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .prices li span:last-child {
+            order: 2;
+            flex-shrink: 0;
+            white-space: nowrap;
         }
 
         #self {
-            width: min(100%, 280px);
-            border-radius: 18px;
-            border: 1px solid var(--border);
+            width: min(100%, 300px);
+            height: auto;
+            margin-top: 1rem;
         }
 
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card {
-            background: var(--panel-alt);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 1.25rem;
-            text-align: left;
-        }
-
-        .service-card h2 {
-            margin-top: 0;
-            font-size: 1.1rem;
-        }
-
-        .contact p,
-        .pricing p,
-        .about p {
-            color: var(--muted);
-        }
-
-        .pricing-list {
-            display: grid;
-            gap: 0.75rem;
-        }
-
-        .pricing-list p {
-            margin: 0;
-        }
-
-        .about {
-            display: grid;
-            grid-template-columns: minmax(0, 1.6fr) minmax(220px, 1fr);
-            gap: 1.5rem;
-            align-items: center;
-            text-align: left;
-        }
-
-        @media (max-width: 720px) {
-            .about {
-                grid-template-columns: 1fr;
-                text-align: center;
+        @media (max-width: 700px) {
+            #tdp {
+                width: 100%;
             }
 
-            .service-card {
-                text-align: center;
+            #services {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <main class="page">
-        <section class="hero">
+        <header>
             <h1>Tuck's Data Plumbing</h1>
             <p>Still better than AI, mostly</p>
             <p>Serving Philadelphia and the World</p>
-            <img id="tdp" src="tdp.png" alt="Tuck's Data Plumbing logo" />
-        </section>
+        </header>
 
-        <section class="contact">
-            <p>Email: tuck @ <a href="https://tucksdataplumbing.com">tucksdataplumbing.com</a></p>
+        <img id="tdp" src="tdp.png" width="2816" height="1536" alt="A data plumber welds a giant pipeline among cloud servers high above a city at night" />
+
+        <section id="contact">
+            <p>Email: <span class="nowrap">tuck @ <a href="https://tucksdataplumbing.com">tucksdataplumbing.com</a></span></p>
             <p>Portfolio: <a href="https://github.com/ryantuck">github.com/ryantuck</a></p>
             <p>More of me: <a href="https://ryantuck.io">ryantuck.io</a></p>
         </section>
 
-        <section class="services">
-            <article class="service-card">
+        <section id="services">
+            <div>
                 <h2>Data Pipelines</h2>
                 <p>Get your data pulled down, tidied up, and where it needs to go as often as you'd like.</p>
-            </article>
-            <article class="service-card">
+            </div>
+            <div>
                 <h2>AI Workloads</h2>
                 <p>Leverage Claude, Gemini, ChatGPT, and friends to do your business's bidding.</p>
-            </article>
-            <article class="service-card">
+            </div>
+            <div>
                 <h2>Cloud Infrastructure</h2>
                 <p>Migrate your business to AWS or Google Cloud, or tune up whatever you've got already.</p>
-            </article>
-            <article class="service-card">
+            </div>
+            <div>
                 <h2>Web Development</h2>
                 <p>Classic full-stack website development and maintenance for teams that need to ship.</p>
-            </article>
-            <article class="service-card">
+            </div>
+            <div>
                 <h2>Analytics</h2>
                 <p>Understand and monitor every aspect of your business with reporting you can trust.</p>
-            </article>
-            <article class="service-card">
+            </div>
+            <div>
                 <h2>Engineering Leadership</h2>
                 <p>Over 10 years of experience helping startups of all sizes build products and teams.</p>
-            </article>
+            </div>
         </section>
 
-        <section class="pricing">
+        <section id="consulting">
             <h2>Software Consulting</h2>
-            <div class="pricing-list">
-                <p>One-hour initial consultation ...... $0 :)</p>
-                <p>One hour .......................... $200</p>
-                <p>One day ........................... $1000</p>
-                <p>One week .......................... $4000</p>
-            </div>
+            <ul class="prices">
+                <li><span>One-hour initial consultation</span><span>$0 :)</span></li>
+                <li><span>One hour</span><span>$200</span></li>
+                <li><span>One day</span><span>$1000</span></li>
+                <li><span>One week</span><span>$4000</span></li>
+            </ul>
             <p>~ all prices subject to tax ~</p>
         </section>
 
-        <section class="about">
-            <div>
-                <h2>Managed Services</h2>
-                <p>Data plumber, cloud mechanic, AI shaman, and general software fixer for businesses that need experienced hands.</p>
-                <p>Affordable small business pricing with a free one-hour consultation to scope the work.</p>
-            </div>
-            <img id="self" src="self.jpeg" alt="Ryan Tuck" />
+        <section id="managed-services">
+            <h2>Managed Services</h2>
+            <p>Data plumber, cloud mechanic, AI shaman, and general software fixer for businesses that need experienced hands.</p>
+            <p>Affordable small business pricing with a free one-hour consultation to scope the work.</p>
+            <img id="self" src="self.jpeg" width="960" height="1280" loading="lazy" alt="Ryan Tuck" />
         </section>
     </main>
 </body>
