@@ -1,4 +1,4 @@
-<!-- [AI-Generated]: Tuck's Data Plumbing homepage, restyled after ad.html -->
+<!-- [AI-Generated]: Tuck's Data Plumbing homepage, neon on black -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +9,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SUSE+Mono&display=swap" />
     <style>
-        /* Same look as ad.html: SUSE Mono, black on white, centered, no boxes. */
+        /* SUSE Mono, centered, no boxes (like ad.html), on black with neon from the hero art. */
+
+        :root {
+            color-scheme: dark;
+            --bg: #111;
+            --text: #eee;
+            --dim: #777;
+            --green: #39ff88;
+            --cyan: #22e4ff;
+            --magenta: #ff3df2;
+        }
 
         body {
             margin: 0;
-            background: #fff;
-            color: #000;
+            background: var(--bg);
+            color: var(--text);
             font-family: "SUSE Mono", monospace;
             text-align: center;
         }
@@ -22,6 +32,10 @@
         a {
             color: inherit;
             text-underline-offset: 0.2em;
+        }
+
+        a:hover {
+            color: var(--cyan);
         }
 
         .page {
@@ -35,14 +49,36 @@
             font-size: clamp(2rem, 8vw, 3rem);
         }
 
+        /* neon gradient title with a glow */
+        h1 span {
+            background: linear-gradient(90deg, var(--green), var(--cyan), var(--magenta));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            filter: drop-shadow(0 0 6px rgb(34 228 255 / 0.6)) drop-shadow(0 0 20px rgb(255 61 242 / 0.4));
+        }
+
+        h2 {
+            color: var(--cyan);
+            text-shadow: 0 0 6px currentColor, 0 0 18px currentColor;
+        }
+
+        #services div:nth-child(3n + 1) h2,
+        #prices h2 {
+            color: var(--green);
+        }
+
+        #services div:nth-child(3n) h2,
+        #managed-services h2 {
+            color: var(--magenta);
+        }
+
         h1,
         h2,
         p {
             text-wrap: balance;
-        }
-
-        .nowrap {
-            white-space: nowrap;
         }
 
         #tdp {
@@ -62,7 +98,8 @@
             justify-content: space-around;
         }
 
-        .prices {
+        /* two-column list with dot leaders: label ........ value */
+        .leaders {
             max-width: 44ch;
             margin: 0 auto;
             padding: 0;
@@ -70,27 +107,44 @@
             text-align: left;
         }
 
-        .prices li {
+        .leaders li {
             display: flex;
             align-items: flex-end;
             gap: 1ch;
             margin: 1em 0;
         }
 
-        /* dot leader between each item and its price */
-        .prices li::after {
+        .leaders li::after {
             content: "............................................................";
             content: "............................................................" / "";
             order: 1;
             flex: 1;
             overflow: hidden;
             white-space: nowrap;
+            color: var(--dim);
         }
 
-        .prices li span:last-child {
+        .leaders li > span:last-child {
             order: 2;
+            text-align: right;
+        }
+
+        /* room on both sides for the hanging smiley, keeping the list centered */
+        #prices .leaders {
+            padding: 0 3ch;
+        }
+
+        #prices li > span:last-child {
+            position: relative;
             flex-shrink: 0;
             white-space: nowrap;
+        }
+
+        /* hangs past the price column so "$0" lines up with the other prices */
+        .hang {
+            position: absolute;
+            left: 100%;
+            padding-left: 1ch;
         }
 
         #self {
@@ -108,12 +162,19 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* keeps "tuck @ tucksdataplumbing.com" on one line on phones */
+        @media (max-width: 420px) {
+            #contact .leaders {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
     <main class="page">
         <header>
-            <h1>Tuck's Data Plumbing</h1>
+            <h1><span>Tuck's Data Plumbing</span></h1>
             <p>Still better than AI, mostly</p>
             <p>Serving Philadelphia and the World</p>
         </header>
@@ -121,9 +182,11 @@
         <img id="tdp" src="tdp.png" width="2816" height="1536" alt="A data plumber welds a giant pipeline among cloud servers high above a city at night" />
 
         <section id="contact">
-            <p>Email: <span class="nowrap">tuck @ <a href="https://tucksdataplumbing.com">tucksdataplumbing.com</a></span></p>
-            <p>Portfolio: <a href="https://github.com/ryantuck">github.com/ryantuck</a></p>
-            <p>More of me: <a href="https://ryantuck.io">ryantuck.io</a></p>
+            <ul class="leaders">
+                <li><span>Email</span><span>tuck @ <a href="https://tucksdataplumbing.com">tucksdataplumbing.com</a></span></li>
+                <li><span>Portfolio</span><span><a href="https://github.com/ryantuck">github.com/ryantuck</a></span></li>
+                <li><span>More of me</span><span><a href="https://ryantuck.io">ryantuck.io</a></span></li>
+            </ul>
         </section>
 
         <section id="services">
@@ -153,10 +216,10 @@
             </div>
         </section>
 
-        <section id="consulting">
-            <h2>Software Consulting</h2>
-            <ul class="prices">
-                <li><span>One-hour initial consultation</span><span>$0 :)</span></li>
+        <section id="prices">
+            <h2>Prices</h2>
+            <ul class="leaders">
+                <li><span>One-hour initial consultation</span><span>$0<span class="hang">:)</span></span></li>
                 <li><span>One hour</span><span>$200</span></li>
                 <li><span>One day</span><span>$1000</span></li>
                 <li><span>One week</span><span>$4000</span></li>
